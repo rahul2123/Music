@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+    ::Videos::
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/jquery.flipster.css">
+    <link rel="stylesheet" href="css/flipsternavtabs.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/jquery.flipster.js"></script>
+    <script>
+    <!--
+    
+    $(function(){
+    $(".flipster").flipster({
+    style: 'carousel'
+    });
+    });
+    -->
+    </script>
+    
+    
+    <script>
+    $(document).ready(function(){
+    $('.vd').click(function(){
+    var vimg = $(this).attr('src');
+    
+    $("#vdo").attr("src", vimg);
+    
+    });
+    $('.vd').click(function(){
+    var img = $(this).attr('poster');
+    
+    $("#poster").attr("src", img);
+    //code for caption
+    var par=$(this).next().html();
+    
+    $('.cap').empty();
+    $('.cap').html(par);
+    });
+    
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+    function stopvideo(){
+    //some code
+    var vd=document.getElementsByTagName('video');
+    for(var i=0;i<=vd.length;i++)
+    {
+    vd[i].pause();
+    vd[i].currentTime=0;
+    }
+    }
+    //pausing videos on click scroll and key events
+    
+    //click event
+    $('.flipster li,.flipster .flipto-prev,.flipster .flipto-prev').click(function(){
+    
+    stopvideo();
+    });
+    //scroll event
+    $('.flipster').on('mousewheel', function(e) {
+    
+    stopvideo();
+    });
+    //keypress event
+    $('body').keydown(function(e){
+    
+    
+    if ((e.keyCode || e.which) == 37)
+    {
+    
+     var vd=$('li video');
+    for(var i=0;i<=vd.length;i++)
+    {
+    vd[i].pause();
+    vd[i].currentTime=0;
+    }
+    }
+    // right arrow
+    if ((e.keyCode || e.which) == 39)
+    {
+    
+    var vd=$('li video');
+    for(var i=0;i<=vd.length;i++)
+    {
+    vd[i].pause();
+    vd[i].currentTime=0;
+    }
+    }
+    });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+    $('button').click(function(){
+    $(this).addClass('active').siblings().removeClass('active')
+    });
+    $("#g11").click(function(event) {
+    $("#vgallery").hide();
+    $("#vgrid").css("display","block");
+    });
+    
+    $("#g22").click(function(event) {
+    $("#vgrid").hide();
+    $("#vgallery").show();
+    });
+    
+    
+    });
+    
+    </script>
+    
+    <style>
+    .flipster{
+    padding-top:10px;
+    margin:auto;
+    margin-top:50px;
+    overflow:visible;
+    background-color:rgba(0, 0, 0, 0.1);
+    }
+    .flipster .flipto-prev:hover {
+    background-color:transparent;
+    }
+    .flipster .flipto-next:hover {
+    background-color:transparent;
+    }
+    .flipster .flipto-prev {
+    left: 0;
+    top:130px;
+    }
+    .flipster .flipto-next {
+    right:0;
+    top:130px;
+    }
+    .flip-current .ca{
+    color:white;
+    margin:auto;
+    border:1px solid black;
+    margin-top:10px;
+    width:150px;
+    background-color:rgba(0, 0, 0, 1);
+    opacity:1;
+    transition-property: opacity;
+    transition-delay: 0.5s;
+    }
+    .flip-current video{
+    box-shadow:0 0 3px 3px white !important;
+    }
+    .ca{
+    padding:5px;
+    width:150px;
+    opacity:0;
+    }
+    </style>
+    
+    
+    
+  </head>
+  <body>
+    <div class="panel">
+      
+      <div id="header">
+        <img id="mic" src="images/mic.png" alt="mic">
+        <img id="music" src="images/music.png" alt="music">
+        <div class="sbox">
+          <button  class="sea">
+          </button>
+          <input id="search" type="search" placeholder="Search...">
+        </div>
+      </div>
+      
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10  col-md-offset-1 ">
+            <ul class="nav nav-pills nav-justified">
+              <li>
+                <a href="index.html">
+                  About us
+                </a>
+              </li>
+              <li>
+                <a href="gallery.html">
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a href="music.html">
+                  Music
+                </a>
+              </li>
+              <li>
+                <a href="files.html">
+                  Files
+                </a>
+              </li>
+              <li class="active">
+                <a href="video.html">
+                  Video
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="main">
+        
+        <div class="btn-group option">
+          <button id="g11" type="button" class="btn btn-primary">
+          Grid
+          </button>
+          <button id="g22" type="button" class="btn btn-primary active">
+          Gallery
+          </button>
+          
+        </div>
+        
+        <div id="vgallery">
+          <div id="Main-Content">
+            <div class="Container">
+              <!-- Flipster List -->
+              <div class="flipster">
+                <ul>
+                  <li>
+                    <video  src="video/01_Intro.mp4" width="450" height="375" controls >
+                    </video>
+                    
+                    <p class="ca">
+                    Track : track 1
+                    Artist:Linkin park
+                    Genre:Rock
+                    Size:5.4mb
+                    Lenght:8:15 min
+                    Rating:<span class="rating">&#9734;&#9734;&#9734;&#9734;</span>&#9734;
+                    </p>
+                    
+                  </li>
+                  <li>
+                    <video  src="video/02_Slicing_The_PSD.mp4" width="450" height="375" controls>
+                    </video>
+                    <p class="ca">
+                    Track : track 1
+                    Artist:Linkin park
+                    Genre:Rock
+                    Size:5.4mb
+                    Lenght:8:15 min
+                    Rating:<span class="rating">&#9734;&#9734;&#9734;&#9734;</span>&#9734;
+                    </p>
+                  </li>
+                  <li>
+                    <video src="video/03_Coding_The_HTML.mp4"  width="450" height="375" controls >
+                    </video>
+                    <p class="ca">
+                    Track : track 1
+                    Artist:Linkin park
+                    Genre:Rock
+                    Size:5.4mb
+                    Lenght:8:15 min
+                    Rating:<span class="rating">&#9734;&#9734;&#9734;&#9734;</span>&#9734;
+                    </p>
+                  </li>
+                  <li>
+                    <video  src="video/01_Intro.mp4" width="450" height="375" controls >
+                    </video>
+                    
+                    <p class="ca">
+                    Track : track 1
+                    Artist:Linkin park
+                    Genre:Rock
+                    Size:5.4mb
+                    Lenght:8:15 min
+                    Rating:<span class="rating">&#9734;&#9734;&#9734;&#9734;</span>&#9734;
+                    </p>
+                  </li>
+                  <li>
+                    <video src="video/02_Slicing_The_PSD.mp4" width="450" height="375" controls>
+                    </video>
+                    <p class="ca">
+                    Track : track 1
+                    Artist:Linkin park
+                    Genre:Rock
+                    Size:5.4mb
+                    Lenght:8:15 min
+                    Rating:<span class="rating">&#9734;&#9734;&#9734;&#9734;</span>&#9734;
+                    </p>
+                  </li>
+                  <li>
+                    <video  src="video/03_Coding_The_HTML.mp4"  width="450" height="375" controls >
+                    </video>
+                    <p class="ca">
+                    Track : track 1
+                    Artist:Linkin park
+                    Genre:Rock
+                    Size:5.4mb
+                    Lenght:8:15 min
+                    Rating:<span class="rating">&#9734;&#9734;&#9734;&#9734;</span>&#9734;
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <!-- End Flipster List -->
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        <div id="vgrid" >
+          
+          <div>
+            <video id="vdo" src="video/01_Intro.mp4" width="500" height="375" controls style="float:left" >
+            </video>
+            <div>
+              <img id="poster" src="images/1.jpg" width="100" height="100">
+            </div>
+            <div class="cap">
+              <p>
+              Track:Track1
+              Artist:Linkin park
+              Genre:Rock
+              Size:5.4mb
+              Lenght:8:15 min
+              Rating:<img src="images/star.png" alt="stars" width="80">
+              </p>
+              
+            </div>
+          </div>
+          
+          <div style="clear:both">
+            <video class="vd" src="video/01_Intro.mp4" poster="images/2.jpg"  width="100" height="100" data-id="seconddiv" >
+              
+            </video>
+            <p class="capt">
+            Track:Track1
+            Artist:Linkin park
+            Genre:Rock
+            Size:5.4mb
+            Lenght:8:15 min
+            Rating:<img src="images/star.png" alt="stars" width="80">
+            </p>
+            
+            
+            <video class="vd" src="video/02_Slicing_The_PSD.mp4" poster="images/3.jpg" width="100" height="100">
+            </video>  <p class="capt">
+            Track:Track2
+            Artist:Linkin park
+            Genre:Rock
+            Size:5.4mb
+            Lenght:8:15 min
+            Rating:<img src="images/star.png" alt="stars" width="80">
+            </p>
+            
+            
+            <video class="vd" src="video/03_Coding_The_HTML.mp4" poster="images/4.jpg" width="100" height="100"  >
+              
+            </video>
+            <p class="capt">
+            Track:Track3
+            Artist:Linkin park
+            Genre:Rock
+            Size:5.4mb
+            Lenght:8:15 min
+            Rating:<img src="images/star.png" alt="stars" width="80">
+            </p>
+            
+            <video class="vd" src="video/04_HTML_to_CSS.mp4" poster="images/5.jpg" width="100" height="100">
+              
+            </video>
+            <p class="capt">
+            Track:Track4
+            Artist:Linkin park
+            Genre:Rock
+            Size:5.4mb
+            Lenght:8:15 min
+            Rating:<img src="images/star.png" alt="stars" width="80">
+            </p>
+            
+            <video class="vd" src="video/01_Intro.mp4" poster="images/6.jpg" width="100" height="100"  >
+            </video>
+            <video class="vd" src="video/02_Slicing_The_PSD.mp4" poster="images/7.jpg" width="100" height="100">
+            </video>
+            <video class="vd" src="video/03_Coding_The_HTML.mp4" poster="images/8.jpg" width="100" height="100"  >
+            </video>
+            <video class="vd" src="video/04_HTML_to_CSS.mp4" poster="images/9.jpg" width="100" height="100">
+            </video>
+            <video class="vd" src="video/01_Intro.mp4" poster="images/2.jpg" width="100" height="100"  >
+            </video>
+            <video class="vd" src="video/02_Slicing_The_PSD.mp4" poster="images/3.jpg" width="100" height="100">
+            </video>
+            <video class="vd" src="video/03_Coding_The_HTML.mp4" poster="images/4.jpg" width="100" height="100" >
+            </video>
+            <video class="vd" src="video/04_HTML_to_CSS.mp4" poster="images/5.jpg" width="100" height="100">
+            </video>
+            <video class="vd" src="video/01_Intro.mp4" poster="images/6.jpg" width="100" height="100"  >
+            </video>
+            <video class="vd" src="video/02_Slicing_The_PSD.mp4" poster="images/7.jpg" width="100" height="100">
+            </video>
+            <video class="vd" src="video/03_Coding_The_HTML.mp4" poster="images/8.jpg" width="100" height="100" >
+            </video>
+            <video class="vd" src="video/04_HTML_to_CSS.mp4" poster="images/9.jpg" width="100" height="100">
+            </video>
+          </div>
+          
+          
+        </div>
+        
+        
+        
+        
+      </div>
+      
+      
+      
+      <div id="footer">
+        
+        
+        <img src="images/line.png" alt="line">
+        
+        <div class="tc">
+          <span >
+          <a href="#">
+            EULA
+          </a>
+          </span>
+          <span>
+          <a href="#">
+            Terms of service
+          </a>
+          </span>
+          <span>
+          <a href="#">
+            privacy policy
+          </a>
+          </span>
+        </div>
+        
+        <div class="copy">
+          
+          <img src="images/smic.png" alt="mic">
+          <span>
+          Copyright &copy; 2012 My Website. All rights reserved
+          </span>
+        </div>
+        
+        
+        
+        <div class="social">
+          
+          <div class="pictureContainer">
+            <a href="http://www.blogger.com">
+              <img class="images" src="images/blogger.png" alt="blogger" />
+            </a>
+            <a href="http://www.facebook.com">
+              <img class="images" src="images/fb.png" alt="facebook"/>
+              
+            </a>
+            <a href="http://www.digg.com">
+              <img class="images" src="images/dig.png" alt="digger"/>
+              
+            </a>
+            <a href="http://www.linkedin.com">
+              <img class="images" src="images/linkden.png" alt="linkedin"/>
+              
+            </a>
+            <a href="http://www.stumble.com">
+              <img class="images" src="images/stumble.png" alt="stumble"/>
+              
+            </a>
+            <a href="http://www.twitter.com">
+              <img class="images" src="images/twitter.png" alt="twitter"/>
+              
+            </a>
+            
+            
+          </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </body>
+</html>

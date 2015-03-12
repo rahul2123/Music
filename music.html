@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      ::Music::
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/jquery.flipster.css">
+    <link rel="stylesheet" href="css/flipsternavtabs.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <script src="js/jquery.flipster.js">
+    </script>
+    <script>
+      <!--
+        
+        $(function(){
+          
+          $(".flipster").flipster({
+            style: 'carousel'
+          });
+
+        });
+      
+      -->
+        
+    </script>
+    
+    
+    <script>
+      $(document).ready(function(){
+
+
+//click function
+$('.flipto-next,.flipto-prev').click(function() {
+ var vsrc=$('.flip-current img').attr('data-src');
+ 
+ $('#mgalleryplayer').attr("src", vsrc);
+});
+
+
+//click function
+        $('.flipster li img').click(function(){
+          var vimg = $(this).attr('data-src');
+          $('#mgalleryplayer').attr("src", vimg);
+       
+        });
+//scroll event
+$('.flipster').on('mousewheel', function(e) {
+    var src=$('.flip-current img').attr('data-src');
+          $('#mgalleryplayer').attr("src", src);
+    
+    });
+
+
+      //keypres event
+      $('body').keydown(function(e){
+    
+    
+    if ((e.keyCode || e.which) == 37)
+    {
+          var src = $('.flip-current img').attr('data-src');
+          $('#mgalleryplayer').attr("src", src);
+    
+     
+    }
+    // right arrow
+    if ((e.keyCode || e.which) == 39)
+    {
+    var src = $('.flip-current img').attr('data-src');
+          $('#mgalleryplayer').attr("src", src);
+    }
+    });
+
+
+
+      });
+    </script>
+    
+    
+    
+    <script>
+      $(document).ready(function(){
+
+$('.current').click(function() {
+if($(this).text()=="Play"){
+
+  
+  $('.current').text("Play");
+  var listsrc=$(this).attr("data-src");
+  $('#mlistplayer').attr('src', listsrc);
+  $('#mlistplayer').attr('autoplay', true);
+  $(this).text('Stop');
+  $('.current').parent().parent().css('border', 'none');
+  $(this).parent().parent().css('border', '1px solid #fff');
+}
+else{
+  $("#mlistplayer").trigger('pause');
+  $("#mlistplayer").prop('currentTime', 0);
+  $(this).text('Play'); 
+}
+});
+
+
+
+        $('.mgrid').click(function(){
+          var vimg = $(this).attr('data-src');
+          $('#mgridplayer').attr("src", vimg);
+        });
+
+
+
+      });
+    </script>
+    
+    
+    <script>
+      $(document).ready(function(){
+        $('button').click(function(){
+          $(this).addClass('active').siblings().removeClass('active')
+            
+        } );
+
+        $("#g11").click(function(event) {
+          $("#mgallery").hide();
+          $("#mlist").hide();
+          $("#mgrid").css("display","block");
+        } );
+        
+        
+        $("#g22").click(function(event) {
+          $("#mgrid").hide();
+          $("#mlist").hide();
+          $("#mgallery").css("display","block");
+        } );
+        
+        $("#g33").click(function(event) {
+          $("#mgrid").hide();
+          $("#mgallery").hide();
+          $("#mlist").css("display","block");
+          
+        } );
+      });
+      
+      
+      
+    </script>
+    
+    
+    <style>
+      
+      .flipster{
+        padding-top:10px;
+        margin:auto;
+        margin-top:50px;
+        overflow:visible;
+        
+        background-color:rgba(0, 0, 0, 0.1);
+        
+      }
+      .flipster .flipto-prev:hover {
+        background-color:transparent;
+      }
+      .flipster .flipto-next:hover {
+        background-color:transparent;
+      }
+      
+      .flipster .flipto-prev {
+        left: 0;
+        top:100px;
+        
+      }
+      .flipster .flipto-next {
+        right:0;
+        top:100px;
+      }
+      .flip-current .ca{
+        color:white;
+        margin:auto;
+        border:1px solid black;
+        margin-top:10px;
+        width:150px;
+        background-color:rgba(0, 0, 0, 1);
+        
+        opacity:1;
+        transition-property: opacity;
+        transition-delay: 0.5s;
+      }
+      .flip-current img{
+        box-shadow:0 0 3px 3px white !important;
+      }
+      .ca{
+        width:150px;
+        opacity:0;
+      }
+    </style>
+    
+    
+    
+  </head>
+  <body>
+    <div class="panel">
+      
+      <div id="header">
+        <img id="mic" src="images/mic.png" alt="mic">
+        <img id="music" src="images/music.png" alt="music">
+        <div class="sbox">
+          <button type="search" class="sea">
+          </button>
+          <input id="search" type="search" placeholder="Search...">
+        </div>
+      </div>
+      
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10  col-md-offset-1 ">
+            <ul class="nav nav-pills nav-justified">
+              <li>
+                <a href="index.html">
+                  About us
+                </a>
+              </li>
+              <li>
+                <a href="gallery.html">
+                  Gallery
+                </a>
+              </li>
+              <li class="active">
+                <a href="music.html">
+                  Music
+                </a>
+              </li>
+              <li>
+                <a href="files.html">
+                  Files
+                </a>
+              </li>
+              <li>
+                <a href="video.html">
+                  Video
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="main">
+        
+        <div class="btn-group option">
+          <button id="g11" type="button" class="btn btn-primary">
+            Grid
+          </button>
+          
+          <button id="g33" type="button" class="btn btn-primary">
+            List
+          </button>
+          
+          <button id="g22" type="button" class="btn btn-primary active">
+            Gallery
+          </button>
+        </div>
+        
+        
+        
+        
+        <div id="mgallery">
+          <div class="player">
+            <audio id="mgalleryplayer" src="song/aa.mp3" data-src="song/aa.mp3" controls>
+           </audio>
+          </div>
+          <div id="Main-Content">
+            <div class="Container">
+              <!-- Flipster List -->
+              
+              <div class="flipster">
+                <ul>
+                  <li>
+                    <img src="img/Sport-1.jpeg" data-src="song/bb.mp3">
+                    
+                    <p class="ca">
+                      Track : track 1
+                      Artist:Linkin park
+                      Genre:Rock
+                      Size:5.4mb
+                      Lenght:8:15 min
+                      Rating:
+                      <span class="rating">
+                        &#9734;&#9734;&#9734;&#9734;
+                      </span>
+                    </p>
+                    
+                    
+                  </li>
+                  <li>
+                    <img src="img/Sport-2.jpeg" data-src="song/cc.mp3">
+                    <p class="ca">
+                      Track : track 1
+                      Artist:Linkin park
+                      Genre:Rock
+                      Size:5.4mb
+                      Lenght:8:15 min
+                      Rating:
+                      <span class="rating">
+                        &#9734;&#9734;&#9734;&#9734;
+                      </span>
+                    </p>
+                    
+                  </li>
+                  <li>
+                    <img src="img/Sport-3.jpeg" data-src="song/aa.mp3">
+                    <p class="ca">
+                      Track : track 1
+                      Artist:Linkin park
+                      Genre:Rock
+                      Size:5.4mb
+                      Lenght:8:15 min
+                      Rating:
+                      <span class="rating">
+                        &#9734;&#9734;&#9734;&#9734;
+                      </span>
+                    </p>
+                    
+                  </li>
+                  <li>
+                    <img src="img/Sport-7.jpeg" data-src="song/bb.mp3">
+                    <p class="ca">
+                      Track : track 1
+                      Artist:Linkin park
+                      Genre:Rock
+                      Size:5.4mb
+                      Lenght:8:15 min
+                      Rating:
+                      <span class="rating">
+                        &#9734;&#9734;&#9734;&#9734;
+                      </span>
+                    </p>
+                    
+                  </li>
+                  <li>
+                    <img src="img/Sport-5.jpeg" data-src="song/cc.mp3">
+                    <p class="ca">
+                      Track : track 1
+                      Artist:Linkin park
+                      Genre:Rock
+                      Size:5.4mb
+                      Lenght:8:15 min
+                      Rating:
+                      <span class="rating">
+                        &#9734;&#9734;&#9734;&#9734;
+                      </span>
+                    </p>
+                    
+                  </li>
+                  <li>
+                    <img src="img/Sport-6.jpeg" data-src="song/bb.mp3">
+                    <p class="ca">
+                      Track : track 1
+                      Artist:Linkin park
+                      Genre:Rock
+                      Size:5.4mb
+                      Lenght:8:15 min
+                      Rating:
+                      <span class="rating">
+                        &#9734;&#9734;&#9734;&#9734;
+                      </span>
+                    </p>
+                    
+                    
+                  </li>
+                </ul>
+                
+              </div>
+              <!-- End Flipster List -->
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <div id="mgrid">
+          
+          <div class="player">
+            <audio id="mgridplayer" src="song/aa.mp3" controls>
+            </audio>
+          </div>
+          
+          
+          <div class="col-lg-2">
+            
+            <img src="images/9.jpg" data-src="song/aa.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+            <img src="images/2.jpg" data-src="song/bb.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+          </div>
+          
+          <div class="col-lg-2">
+            
+                      <img src="images/3.jpg" data-src="song/cc.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+                      <img src="images/4.jpg" data-src="song/aa.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+          </div>
+          
+          <div class="col-lg-2">
+            
+                      <img src="images/5.jpg" data-src="song/bb.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+                      <img src="images/6.jpg" data-src="song/cc.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+          </div>
+          
+          <div class="col-lg-2">
+            
+            <img src="images/7.jpg" data-src="song/aa.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+            <img src="images/8.jpg" data-src="song/bb.mp3" class="thumbnail gallery2 mgrid" alt="Smiley face" height="150" width="150"/>
+          </div>
+        </div>
+        
+        
+        <div id="mlist">
+          <div class="player">
+            <audio id="mlistplayer" src="song/aa.mp3" controls>
+            </audio>
+          </div>
+          
+          <table>
+            
+            <thead>
+              <tr>
+                <th>
+                  No
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Song Name
+                </th>
+                <th>
+                  Artist
+                </th>
+                <th>
+                  Genre
+                </th>
+                <th>
+                  Length
+                </th>
+                <th>
+                  Size
+                </th>
+                <th>
+                  Rating
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td >
+                  <a href="#" class="current" data-src="song/aa.mp3">
+                    Play
+                  </a>
+                </td>
+                <td>
+                  track1
+                </td>
+                <td>
+                  abcd
+                </td>
+                <td>
+                  rock
+                </td>
+                <td>
+                  5.49
+                </td>
+                <td>
+                  6.4mb
+                </td>
+                <td>
+                  <img src="images/star.png" class="play" width="80">
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                  2
+                </td>
+                <td >
+                  <a href="#" class="current"  data-src="song/bb.mp3">
+                    Play
+                  </a>
+                </td>
+                <td>
+                  track2
+                </td>
+                <td>
+                  abcd
+                </td>
+                <td>
+                  rock
+                </td>
+                <td>
+                  5.49
+                </td>
+                <td>
+                  6.4mb
+                </td>
+                <td>
+                  <img src="images/star.png" width="80">
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                  3
+                </td>
+                <td >
+                  <a href="#" class="current" data-src="song/aa.mp3">
+                    Play
+                  </a>
+                </td>
+                <td>
+                  track3
+                </td>
+                <td>
+                  abcd
+                </td>
+                <td>
+                  rock
+                </td>
+                <td>
+                  5.49
+                </td>
+                <td>
+                  6.4mb
+                </td>
+                <td>
+                  <img src="images/star.png" width="80">
+                </td>
+              </tr>
+              
+              
+              
+              
+            </tbody>
+          </table>
+          
+          
+        </div>
+        
+      </div>
+      
+      
+      
+      <div id="footer">
+        
+        
+        <img src="images/line.png" alt="line">
+        
+        <div class="tc">
+          <span >
+            <a href="#">
+              EULA
+            </a>
+          </span>
+          <span>
+            <a href="#">
+              Terms of service
+            </a>
+          </span>
+          <span>
+            <a href="#">
+              privacy policy
+            </a>
+          </span>
+        </div>
+        
+        <div class="copy">
+          
+          <img src="images/smic.png"/>
+          <span>
+            Copyright &copy; 2012 My Website. All rights reserved
+          </span>
+        </div>
+        
+        
+        
+        <div class="social">
+          
+          <div class="pictureContainer">
+            
+            <a href="http://www.blogger.com">
+              <img  src="images/blogger.png" alt="blogger" />
+            </a>
+            <a href="http://www.facebook.com">
+              <img  src="images/fb.png" alt="facebook"/>
+              
+            </a>
+            <a href="http://www.digg.com">
+              <img  src="images/dig.png" alt="digger"/>
+              
+            </a>
+            <a href="http://www.linkedin.com">
+              <img  src="images/linkden.png" alt="linkedin"/>
+              
+            </a>
+            <a href="http://www.stumble.com">
+              <img  src="images/stumble.png" alt="stumble"/>
+              
+            </a>
+            <a href="http://www.twitter.com">
+              <img  src="images/twitter.png" alt="twitter"/>
+              
+            </a>
+            
+          </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
